@@ -1,3 +1,3 @@
 #### Tugas Internship
 
-Membuat CRUD produk makanan
+Membuat CRUD produk makanan menggunakan Laravel 10
