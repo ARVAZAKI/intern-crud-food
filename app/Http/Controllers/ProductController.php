@@ -55,11 +55,23 @@ class ProductController extends Controller
     }
     public function updateProduct(Request $request, $id){
         $produk = Product::findOrFail($id);
+        $validasi = Validator::make($request->all(),[
+            'nama_produk' => 'required',
+            'harga_produk' => 'required',
+            'deskripsi_produk' => 'required',
+            'foto_produk' => 'image|mimes:jpeg,png,jpg',
+            'category' => 'required',
+        ]);
+        if ($validasi->fails()) {
+            return redirect()->back()->withErrors($validasi)->withInput();
+        }
         $imageName = '';
         if($request->file('foto_produk')){
             $extension = $request->file('foto_produk')->getClientOriginalExtension();
             $imageName = $request->nama_produk . '.' . $extension;
             $request->file('foto_produk')->storeAs('photo', $imageName);
+        }else{
+            $imageName = $produk->foto_produk;
         }
         $produk->update([
             'nama_produk' => $request->nama_produk,

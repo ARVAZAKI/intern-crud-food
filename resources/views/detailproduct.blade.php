@@ -42,19 +42,19 @@
                     <div class="card-header text-center bg-primary text-white">Detail Product</div>
                     <div class="card-body">
                         <div class="d-flex justify-content-center mt-2 mb-2">
-                            <img src="{{asset('storage/photo/potato.jpeg')}}" height="200" alt="">
+                            <img src="{{asset('storage/photo/'.$produk->foto_produk)}}" height="200" alt="">
                         </div>
                         <div class="mb-2">
-                            Nama produk : potato
+                            Nama produk : {{ $produk->nama_produk }}
                         </div>
                         <div class="mb-2">
-                            Kategori : potato
+                            Kategori : {{ $produk->category }}
                         </div>
                         <div class="mb-2">
-                            Harga : potato
+                            Harga : {{ $produk->harga_produk }}
                         </div>
                         <div class="mb-2">
-                            Deskripsi : Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ipsam dolor incidunt vero velit vitae adipisci delectus quasi reprehenderit hic?
+                            deskripsi : {{ $produk->deskripsi_produk }}
                         </div>
                     </div>
                 </div>
